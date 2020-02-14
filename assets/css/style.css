@@ -33,10 +33,10 @@ body {
   cursor: pointer;
 }
 
-/* .button:hover {
+.button:hover {
   background: red;
   cursor: pointer;
-} */
+}
 
 @media screen and (max-width: 600px) {
   .topNav .search-container {
@@ -44,7 +44,7 @@ body {
   }
 }
 
-/* .theSwitch {
+.theSwitch {
   position: relative;
   display: inline-block;
   width: 60px;
@@ -96,13 +96,13 @@ input:checked + .theSlider:before {
 }
 
 /* Rounded sliders */
-/* .theSlider.itsRound {
+.theSlider.itsRound {
   border-radius: 34px;
 }
 
 .theSlider.itsRound:before {
   border-radius: 50%;
-} */ */
+}
 
 .theSwitch {
   position: relative;
