@@ -3,9 +3,22 @@
   font-family: 'Gloria Hallelujah', cursive;
 }
 
+.inputText {
+  height: 50px;
+  width: 300px;
+  font-size: 24px;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background: #722e2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+
 }
 
 .topNav a:hover {
@@ -21,7 +34,7 @@ body {
   width: 25%;
 }
 
-.topNav .search-container button {
+.topNav .search-container {
   height: 50px;
   width: 50px;
   padding: 9px 10px;
@@ -29,6 +42,17 @@ body {
   margin-right: 16px;
   background: red;
   font-size: 25px;
+  border: 3px solid black;
+  cursor: pointer;
+}
+
+.button {
+  height: 50px;
+  width: 50px;
+  padding: -2px -6px;
+  margin-top: px;
+  margin-right: 16px;
+  background: rgb(191, 187, 187);
   border: 3px solid black;
   cursor: pointer;
 }
@@ -44,122 +68,61 @@ body {
   }
 }
 
-.theSwitch {
+h1 {
+  color: #eff0d8;
+  text-align: center;
+  font-size: 3em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  font-weight: 200;
+  margin-bottom: 4px;
+}
+
+.slider {
+  width: 110px;
+  height: 50px;
+  background: #eff0d8;
   position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+  border-radius: 50px;
+  padding: 0px 10px;
+  margin-top: 12px;
 }
 
-.theSwitch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.theSlider {
+.ball {
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  background: #e73b3b;
   position: absolute;
-  cursor: pointer;
-  top: 0;
+  top: 50%;
+  margin-top: -22px;
+  margin-left: 3px;
+  transition: all 0.7s cubic-bezier(0.46, 0.03, 0.52, 0.96);
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.theSlider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .theSlider {
-  background-color: #2196F3;
-}
-
-input:focus + .theSlider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .theSlider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.theSlider.itsRound {
-  border-radius: 34px;
-}
-
-.theSlider.itsRound:before {
-  border-radius: 50%;
-}
-
-.theSwitch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.theSwitch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.theSlider {
-  position: absolute;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  z-index: 2;
 }
 
-.theSlider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+.right {
+  left: 79px;
+  background: rgb(44, 99, 167);
 }
 
-input:checked + .theSlider {
-  background-color: #2196F3;
+.eatIn {
+  color: #e73b3b;
 }
 
-input:focus + .theSlider {
-  box-shadow: 0 0 1px #2196F3;
+.eatOut {
+  color:  rgb(44, 99, 167);
 }
 
-input:checked + .theSlider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+.active {
+  transition: all 0.6s ease-in-out;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
-/* Rounded sliders */
-.theSlider.itsRound {
-  border-radius: 34px;
-}
-
-.theSlider.itsRound:before {
-  border-radius: 50%;
+.blue {
+  background:  rgb(4, 23, 57);
 }
