@@ -1,4 +1,22 @@
 // Spoonacular
+var queryTerm = "cheese";
+$.ajax({
+  url:
+    "https://api.spoonacular.com/recipes/search?query=" +
+    queryTerm +
+    "&number=5&apiKey=0dd700bb292b45f0808607207442926f",
+  method: "GET"
+}).then(function(response) {
+  console.log(response.results[0].id);
+  var responseID = response.results[0].id;
+  $.ajax({
+    url: "https://api.spoonacular.com/recipes/" + responseID + "/information",
+    method: "GET"
+  }).then(function(response) {
+    console.log(response);
+  });
+});
+
 // https://api.spoonacular.com/recipes/search?query=cheese&number=5&apiKey=0dd700bb292b45f0808607207442926f
 
 // Yelp
