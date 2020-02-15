@@ -12,22 +12,35 @@
   </head>
   <body>
     <div id="header" class="row">
-      <div class="col s12">
-        <div id="inputLocation"></div>
+      <div id="eatInHeader" class="col s12 valign-wrapper">
+        <div id="inputRecipe" class="row noBotMargin">
+          <div class="col s12">Test</div>
+        </div>
       </div>
     </div>
-    <div id="content" class="row">
-      <div id="listResult" class="col s6">
-        <div id="imageLink"></div>
-        <div id="titleResult"></div>
-        <div id="bodyResult"></div>
+    <div id="content" class="container">
+      <div id="listResultBox" class="row">
+        <div id="imageLink" class="col s4">Image Goes Here</div>
+        <div id="dataResultWrapper" class="col s8">
+          <div id="dataTitle" class="col s12">Title</div>
+          <div id="dataReadyMins" class="col s12">
+            Ready in X Minutes
+          </div>
+          <div id="dataServings" class="col s12">Servings</div>
+          <div id="dataLinkToRecipe" class="col s12">LinkHere</div>
+        </div>
       </div>
-      <div id="map" class="col s6"></div>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
+    <script src="./assets/js/eat_in_content.js"></script>
+    <!-- <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChNz9Tfq0oU2uwA-y6aUVzDvht_m3G0Kk&callback=initMap"
+      async
+      defer
+    ></script> -->
   </body>
 </html>

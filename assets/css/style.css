@@ -1,10 +1,13 @@
-#siteName, .searchBox {
+#siteName,
+.searchBox {
   text-align: center;
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: "Gloria Hallelujah", cursive;
 }
 
 body {
+  height: 100%;
   margin: 0;
+  padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -13,7 +16,7 @@ body {
   color: black;
 }
 
-.topNav input[type=text] {
+.topNav input[type="text"] {
   padding: 6px;
   margin-top: 8px;
   font-size: 17px;
@@ -102,16 +105,15 @@ input:checked + .theSlider:before {
 
 .theSlider.itsRound:before {
   border-radius: 50%;
-} */ */
-
-.theSwitch {
+} */
+*/ .theSwitch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
 
-.theSwitch input { 
+.theSwitch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -125,8 +127,8 @@ input:checked + .theSlider:before {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .theSlider:before {
@@ -137,16 +139,16 @@ input:checked + .theSlider:before {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .theSlider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .theSlider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .theSlider:before {
@@ -162,4 +164,26 @@ input:checked + .theSlider:before {
 
 .theSlider.itsRound:before {
   border-radius: 50%;
+}
+
+/* IDs and Classes for Eat In Content */
+#map {
+  height: 100vh;
+}
+
+#eatInHeader {
+  height: 15vh;
+  border-bottom: solid;
+}
+
+#inputRecipe {
+  margin: 0px 15%;
+}
+
+#listResultBox {
+  border: solid;
+}
+
+.noBotMargin {
+  margin-bottom: 0px;
 }
