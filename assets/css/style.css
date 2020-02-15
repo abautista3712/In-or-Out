@@ -1,6 +1,12 @@
+* {
+    transition: all 1s ease-in-out;
+}
+
 #siteName, .searchBox {
   text-align: center;
   font-family: 'Gloria Hallelujah', cursive;
+  padding-bottom: 12px;
+  padding-top: 8px;
 }
 
 .inputText {
@@ -19,53 +25,6 @@ body {
   flex-direction: column;
   height: 100vh;
 
-}
-
-.topNav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topNav input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border: 3px solid black;
-  width: 25%;
-}
-
-.topNav .search-container {
-  height: 50px;
-  width: 50px;
-  padding: 9px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: red;
-  font-size: 25px;
-  border: 3px solid black;
-  cursor: pointer;
-}
-
-.button {
-  height: 50px;
-  width: 50px;
-  padding: -2px -6px;
-  margin-top: px;
-  margin-right: 16px;
-  background: rgb(191, 187, 187);
-  border: 3px solid black;
-  cursor: pointer;
-}
-
-.button:hover {
-  background: red;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 600px) {
-  .topNav .search-container {
-    float: none;
-  }
 }
 
 h1 {
@@ -125,4 +84,52 @@ h1 {
 
 .blue {
   background:  rgb(4, 23, 57);
+}
+
+
+.topNav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topNav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: 3px solid black;
+  width: 25%;
+}
+
+.topNav .search-container {
+  height: 50px;
+  width: 50px;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: red;
+  font-size: 25px;
+  border: 3px solid black;
+  cursor: pointer;
+}
+
+.button {
+  height: 50px;
+  width: 50px;
+  padding: -2px -6px;
+  margin-top: px;
+  margin-right: 16px;
+  background: rgb(191, 187, 187);
+  border: 3px solid black;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: red;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .topNav .search-container {
+    float: none;
+  }
 }
