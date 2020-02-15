@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 #siteName,
 .searchBox {
   text-align: center;
   font-family: "Gloria Hallelujah", cursive;
-=======
 * {
     transition: all 1s ease-in-out;
 }
@@ -19,7 +17,6 @@
   height: 50px;
   width: 300px;
   font-size: 24px;
->>>>>>> 851d3b5b6a50eef51c4be1e46a7860774dae2049
 }
 
 body {
@@ -36,14 +33,12 @@ body {
 
 }
 
-<<<<<<< HEAD
 .topNav input[type="text"] {
   padding: 6px;
   margin-top: 8px;
   font-size: 17px;
   border: 3px solid black;
   width: 25%;
-=======
 h1 {
   color: #eff0d8;
   text-align: center;
@@ -53,7 +48,6 @@ h1 {
     "Segoe UI Symbol";
   font-weight: 200;
   margin-bottom: 4px;
->>>>>>> 851d3b5b6a50eef51c4be1e46a7860774dae2049
 }
 
 .slider {
@@ -104,7 +98,6 @@ h1 {
   background:  rgb(4, 23, 57);
 }
 
-<<<<<<< HEAD
 .theSlider.itsRound:before {
   border-radius: 50%;
 } */
@@ -119,7 +112,6 @@ h1 {
   opacity: 0;
   width: 0;
   height: 0;
-=======
 
 .topNav a:hover {
   background-color: #ddd;
@@ -132,7 +124,6 @@ h1 {
   font-size: 17px;
   border: 3px solid black;
   width: 25%;
->>>>>>> 851d3b5b6a50eef51c4be1e46a7860774dae2049
 }
 
 .topNav .search-container {
@@ -145,7 +136,6 @@ h1 {
   font-size: 25px;
   border: 3px solid black;
   cursor: pointer;
-<<<<<<< HEAD
   top: 0;
   left: 0;
   right: 0;
@@ -173,8 +163,6 @@ input:checked + .theSlider {
 
 input:focus + .theSlider {
   box-shadow: 0 0 1px #2196f3;
-=======
->>>>>>> 851d3b5b6a50eef51c4be1e46a7860774dae2049
 }
 
 .button {
@@ -193,7 +181,6 @@ input:focus + .theSlider {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
 .theSlider.itsRound:before {
   border-radius: 50%;
 }
@@ -219,10 +206,8 @@ input:focus + .theSlider {
 .noBotMargin {
   margin-bottom: 0px;
 }
-=======
 @media screen and (max-width: 600px) {
   .topNav .search-container {
     float: none;
   }
 }
->>>>>>> 851d3b5b6a50eef51c4be1e46a7860774dae2049
