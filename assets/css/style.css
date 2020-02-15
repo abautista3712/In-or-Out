@@ -1,3 +1,7 @@
+#siteName,
+.searchBox {
+  text-align: center;
+  font-family: "Gloria Hallelujah", cursive;
 * {
     transition: all 1s ease-in-out;
 }
@@ -16,7 +20,9 @@
 }
 
 body {
+  height: 100%;
   margin: 0;
+  padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: #722e2e;
   display: flex;
@@ -27,6 +33,12 @@ body {
 
 }
 
+.topNav input[type="text"] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: 3px solid black;
+  width: 25%;
 h1 {
   color: #eff0d8;
   text-align: center;
@@ -86,6 +98,20 @@ h1 {
   background:  rgb(4, 23, 57);
 }
 
+.theSlider.itsRound:before {
+  border-radius: 50%;
+} */
+*/ .theSwitch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.theSwitch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 
 .topNav a:hover {
   background-color: #ddd;
@@ -110,6 +136,33 @@ h1 {
   font-size: 25px;
   border: 3px solid black;
   cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.theSlider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .theSlider {
+  background-color: #2196f3;
+}
+
+input:focus + .theSlider {
+  box-shadow: 0 0 1px #2196f3;
 }
 
 .button {
@@ -128,6 +181,31 @@ h1 {
   cursor: pointer;
 }
 
+.theSlider.itsRound:before {
+  border-radius: 50%;
+}
+
+/* IDs and Classes for Eat In Content */
+#map {
+  height: 100vh;
+}
+
+#eatInHeader {
+  height: 15vh;
+  border-bottom: solid;
+}
+
+#inputRecipe {
+  margin: 0px 15%;
+}
+
+#listResultBox {
+  border: solid;
+}
+
+.noBotMargin {
+  margin-bottom: 0px;
+}
 @media screen and (max-width: 600px) {
   .topNav .search-container {
     float: none;
