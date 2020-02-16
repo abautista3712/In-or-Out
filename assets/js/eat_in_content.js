@@ -1,41 +1,84 @@
+// // Iterative for-loop used to create results boxes
+for (a = 1; a < 6; a++) {
+  // Materialize Row
+  $("<div>", { id: "listResultsBox" + a, class: "row" }).appendTo(
+    "#eatInContent"
+  );
+  // Wrapper used to restrict sizing/positioning on img child
+  $("<div>", { id: "imageSizing" + a, class: "col s4" }).appendTo(
+    "#listResultsBox" + a
+  );
+  // Img element for recipe picture
+  $("<img>", {
+    id: "imageRecipe" + a,
+    class: "col s12",
+    alt: "Recipe Picture"
+  }).appendTo("#imageSizing" + a);
+  // Wrapper used to restrict sizing/positioning on data returned from API
+  $("<div>", { id: "dataResultsWrapper" + a, class: "col s8" }).appendTo(
+    "#listResultsBox" + a
+  );
+  // Data: Title
+  $("<div>", { id: "dataTitle" + a, class: "col s12" })
+    .text("Title")
+    .appendTo("#dataResultsWrapper" + a);
+  // Data: Spoonacular Rating
+  $("<div>", { id: "dataRating" + a, class: "col s12" })
+    .text("Spoonacular Rating: X%")
+    .appendTo("#dataResultsWrapper" + a);
+  // Data: Ready in X Minutes
+  $("<div>", { id: "dataReadyMins" + a, class: "col s12" })
+    .text("Preparation Time: X Minutes")
+    .appendTo("#dataResultsWrapper" + a);
+  // Data: Servings
+  $("<div>", { id: "dataServings" + a, class: "col s12" })
+    .text("Servings: X")
+    .appendTo("#dataResultsWrapper" + a);
+  // Wrapper used to restrict sizing/positioning on recipe link
+  $("<div>", { id: "dataLinkToRecipeWrapper" + a, class: "col s12" }).appendTo(
+    "#dataResultsWrapper" + a
+  );
+  // Data: Recipe Link
+  $("<a>", { id: "dataLinkToRecipe" + a })
+    .text("Recipe Link")
+    .appendTo("#dataLinkToRecipeWrapper" + a);
+}
 // Spoonacular
-var queryTerm = "potato";
-$.ajax({
-  url:
-    "https://api.spoonacular.com/recipes/search?query=" +
-    queryTerm +
-    "&instructionsRequired=true&number=5&apiKey=0dd700bb292b45f0808607207442926f",
-  method: "GET"
-}).then(function(response) {
-  console.log(response.results[0]);
-  var responseID = response.results[0].id;
-  $.ajax({
-    url:
-      "https://api.spoonacular.com/recipes/" +
-      responseID +
-      "/information?includeNutrition=false&apiKey=0dd700bb292b45f0808607207442926f",
-    method: "GET"
-  }).then(function(response) {
-    // Recipe Image
-    console.log(response);
-    $("#imageRecipe").attr("src", response.image);
-    $("#dataTitle").text(response.title);
-    $("#dataReadyMins").text("Ready in: " + response.readyInMinutes + " Mins");
-    $("#dataServings").text("Servings: " + response.servings);
-    $("#dataLinkToRecipe").attr("href", response.sourceUrl);
-    $("#dataLinkToRecipe").text(response.sourceUrl);
-    console.log(response.sourceUrl);
-  });
-});
+// var queryTerm = "potato";
 
 // $.ajax({
 //   url:
-//     "https://api.spoonacular.com/recipes/215435/information?includeNutrition=false&apiKey=0dd700bb292b45f0808607207442926f"
+//     "https://api.spoonacular.com/recipes/search?query=" +
+//     queryTerm +
+//     "&instructionsRequired=true&number=5&apiKey=0dd700bb292b45f0808607207442926f",
+//   method: "GET"
 // }).then(function(response) {
-//   console.log(response);
+//   for (b = 0; b < response.results.length; b++) {
+//     var queryURL =
+//       "https://api.spoonacular.com/recipes/" +
+//       response.results[b].id +
+//       "/information?includeNutrition=false&apiKey=0dd700bb292b45f0808607207442926f";
+//     $.ajax({
+//       url: queryURL,
+//       method: "GET"
+//     }).then(function(response) {
+//       console.log(response);
+//       for (c = 1; c < 6; c++) {
+//         $("#imageRecipe" + c).attr("src", response.image);
+//         $("#dataTitle" + c).text(response.title);
+//         $("#dataRating" + c).text(
+//           "Spoonacular Rating: " + response.spoonacularScore + "%"
+//         );
+//         $("#dataReadyMins" + c).text(
+//           "Ready in: " + response.readyInMinutes + " Mins"
+//         );
+//         $("#dataServings" + c).text("Servings: " + response.servings);
+//         $("#dataLinkToRecipe" + c).attr("href", response.sourceUrl);
+//         $("#dataLinkToRecipe" + c).text(response.sourceUrl);
+//       }
+//     });
+//   }
 // });
-
-// https://api.spoonacular.com/recipes/search?query=cheese&number=5&apiKey=0dd700bb292b45f0808607207442926f
 
 // Yelp
 // $.ajax({
