@@ -42,23 +42,28 @@ body {
 
 .blue {
   background:  rgb(4, 23, 57);
-  background-image: url("../images/restaurantPicEdited.jpg");
+  background-image: url("../images/restaurantPic2Edited.jpg");
   background-size: cover;
 }  
 
 .button {
-  background: purple;
-  height: 100%;
+  height: 108%;
   margin-top: 0px;
   margin-right: 0px;
+  font-size: 110%;
   background: rgb(191, 187, 187);
   border: 1px solid black;
   cursor: pointer;
   border-radius: 0px 25px 25px 0px;
   border-left: 0px;
   float: left;
-  width: 50px;
+  width: 10%;
+  position: relative;
+  top: 1%;
+  padding-right: 3%;
+  background-color: antiquewhite;
 }  
+
 
 .button:hover {
   background: red;
@@ -74,13 +79,17 @@ body {
 }    
 
 .inputText {
-  height: 92%;
-  font-size: 24px;
+  position: relative;
+  top: 1%;
+  height: 100%;
+  font-size: 140%;
+  padding-left: 3%;
   border-radius: 25px 0px 0px 25px;
   border-right: 0px;
   float: left;
-  width: 400px;
+  width: 84%;
   border: 1px solid black;
+  background-color: antiquewhite;
 }
 
 .noBotMargin {
@@ -94,20 +103,26 @@ body {
 
 .searchBox {
   position: absolute;
-  top: 290px;
+  top: 32%;
   text-align: center;
   font-family: 'Gloria Hallelujah', cursive;
   padding-bottom: 12px;
   padding-top: 8px;
-  width: 454px;
+  width: 50%;
   height: 50px;
 }            
 
+.searchIcon {
+  position: relative;
+  width: auto;
+}
+
 .slider {
-  width: 110px;
+  position: absolute;
+  top: 45%;
+  width: 7.7494%;  
   height: 50px;
   background: #eff0d8;
-  position: relative;
   border-radius: 50px;
   padding: 0px 10px;
   margin-top: 12px;
@@ -115,7 +130,7 @@ body {
 
 .title {
   position: absolute;
-  top: 180px;
+  top: 16%;
   color: #eff0d8;
   text-align: center;
   font-size: 3em;
