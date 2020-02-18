@@ -3,6 +3,7 @@
 
 $(document).ready(function () {
     $('.button').on('click', storeInput);
+    $('.button').on('click', storeLocationInput);
 
     console.log("Test");
     
@@ -21,5 +22,11 @@ $(document).ready(function () {
     // };
 
 // getInput();
+
+    function storeLocationInput() {
+        var userlocation = $('.inputLocation').val();
+        console.log(userlocation);
+        localStorage.setItem('userCity', userlocation);
+    };
 
 })

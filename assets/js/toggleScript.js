@@ -29,7 +29,7 @@ slider.addEventListener('click', () => {
 
     // // if (ball.classList.toggle('right')) {
     // var locationInput = document.createElement('input');
-    //     locationInput.setAtrribute('type', type);        
+    //     locationInput.setAtrribute('type', type);       
     //     locationInput.setAtrribute('value', type);
     //     locationInput.setAtrribute('location', type);
     // // }
