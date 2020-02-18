@@ -179,19 +179,19 @@ body {
   margin-bottom: 4px;
 }
 
-#eatInBtn {
-  vertical-align: text-top;
-  border: solid;
-  background-color: #e73b3b;
-}
-
 #eatInHeader {
   height: 15vh;
   border-bottom: solid;
   background: url(../images/recipePic.jpg);
 }
 
-#inputRecipe {
+#inputRecipeBtn {
+  vertical-align: text-top;
+  border: solid;
+  background-color: #e73b3b;
+}
+
+#inputRecipeRow {
   width: 100%;
   margin: 0px 15%;
   border: solid;
