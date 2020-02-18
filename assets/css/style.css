@@ -1,10 +1,10 @@
 * {
   transition: all 1s ease-in-out;
-}  
+}
 
 body {
   margin: 0;
-}  
+}
 
 .mainWrapper {
   position: relative;
@@ -18,13 +18,13 @@ body {
   height: 100vh;
   background-image: url("../images/recipePic.jpg");
   background-size: cover;
-}        
+}
 
 .active {
   transition: all 0.6s ease-in-out;
   font-size: 1.5em;
   font-weight: bold;
-}  
+}
 
 .ball {
   width: 45px;
@@ -39,22 +39,21 @@ body {
   left: 0;
   cursor: pointer;
   z-index: 2;
-}      
+}
 
 .blue {
-  background:  rgb(4, 23, 57);
+  background: rgb(4, 23, 57);
   background-image: url("../images/restaurantPic2Edited.jpg");
   background-size: cover;
-}  
-
+}
 
 .eatIn {
   color: #e73b3b;
-}      
+}
 
 .eatOut {
-  color:  rgb(44, 99, 167);
-}    
+  color: rgb(44, 99, 167);
+}
 
 .inputText {
   position: relative;
@@ -91,7 +90,7 @@ body {
 .right {
   left: 79px;
   background: rgb(44, 99, 167);
-}      
+}
 
 .button {
   height: 107%;
@@ -109,7 +108,7 @@ body {
   top: 1%;
   padding-right: 3%;
   background-color: antiquewhite;
-}  
+}
 
 .locationButton {
   height: 107%;
@@ -138,18 +137,18 @@ body {
 .button:hover {
   background: red;
   cursor: pointer;
-}  
+}
 
 .searchBox {
   position: absolute;
   top: 52%;
   text-align: center;
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: "Gloria Hallelujah", cursive;
   padding-bottom: 12px;
   padding-top: 8px;
   width: 40%;
   height: 8%;
-}            
+}
 
 .searchIcon {
   position: relative;
@@ -160,13 +159,13 @@ body {
 .slider {
   position: absolute;
   top: 76%;
-  width: 110px;  
+  width: 110px;
   height: 50px;
   background: #eff0d8;
   border-radius: 50px;
   padding: 0px 10px;
   margin-top: 12px;
-}          
+}
 
 .title {
   position: absolute;
@@ -174,20 +173,29 @@ body {
   color: #eff0d8;
   text-align: center;
   font-size: 3.25em;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
-  font-weight: 200;            
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 200;
   margin-bottom: 4px;
-}            
+}
 
 #eatInHeader {
   height: 15vh;
   border-bottom: solid;
+  background: url(../images/recipePic.jpg);
 }
 
-#inputRecipe {
+#inputRecipeBtn {
+  vertical-align: text-top;
+  border: solid;
+  background-color: #e73b3b;
+}
+
+#inputRecipeRow {
+  width: 100%;
   margin: 0px 15%;
+  border: solid;
+  background-color: #fff;
 }
 
 #listResultBox {
@@ -200,7 +208,7 @@ body {
 
 #siteName {
   text-align: center;
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: "Gloria Hallelujah", cursive;
   padding-bottom: 12px;
   padding-top: 8px;
-}  
+}

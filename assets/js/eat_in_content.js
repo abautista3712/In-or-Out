@@ -108,3 +108,13 @@ for (a = 1; a < 6; a++) {
 //     map: map
 //   });
 // }
+
+$("#inputRecipeBtn").on("click", function() {
+  console.log($("#inputRecipe").val());
+});
+
+$(document).on("keypress", function(e) {
+  if (e.which === 13) {
+    console.log($("#inputRecipe").val());
+  }
+});
