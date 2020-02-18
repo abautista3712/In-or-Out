@@ -44,57 +44,63 @@ for (a = 1; a < 6; a++) {
     .appendTo("#dataLinkToRecipeWrapper" + a);
 }
 // Spoonacular
-var queryTerm = "potato";
-$.ajax({
-  url:
-    "https://api.spoonacular.com/recipes/search?query=" +
-    queryTerm +
-    "&instructionsRequired=true&number=5&apiKey=0dd700bb292b45f0808607207442926f",
-  method: "GET"
-}).then(function(response) {
+function getDataAndAttach(indexID, targetRow) {
+  var queryTerm = "potato";
   $.ajax({
     url:
-      "https://api.spoonacular.com/recipes/" +
-      response.results[0].id +
-      "/information?includeNutrition=false&apiKey=0dd700bb292b45f0808607207442926f",
+      "https://api.spoonacular.com/recipes/search?query=" +
+      queryTerm +
+      "&instructionsRequired=true&number=5&apiKey=0dd700bb292b45f0808607207442926f",
     method: "GET"
   }).then(function(response) {
-    console.log(response);
-    $("#imageRecipe" + 1).attr("src", response.image);
-    $("#dataTitle" + 1).text(response.title);
-    $("#dataRating" + 1).text(
-      "Spoonacular Rating: " + response.spoonacularScore + "%"
-    );
-    $("#dataReadyMins" + 1).text(
-      "Ready in: " + response.readyInMinutes + " Mins"
-    );
-    $("#dataServings" + 1).text("Servings: " + response.servings);
-    $("#dataLinkToRecipe" + 1).attr("href", response.sourceUrl);
-    $("#dataLinkToRecipe" + 1).text(response.sourceUrl);
-  });
-  $.ajax({
-    url:
+    var queryURL =
       "https://api.spoonacular.com/recipes/" +
-      response.results[1].id +
-      "/information?includeNutrition=false&apiKey=0dd700bb292b45f0808607207442926f",
-    method: "GET"
-  }).then(function(response) {
-    console.log(response);
-    // for (c = 1; c < 3; c++) {
-    $("#imageRecipe" + 2).attr("src", response.image);
-    $("#dataTitle" + 2).text(response.title);
-    $("#dataRating" + 2).text(
-      "Spoonacular Rating: " + response.spoonacularScore + "%"
-    );
-    $("#dataReadyMins" + 2).text(
-      "Ready in: " + response.readyInMinutes + " Mins"
-    );
-    $("#dataServings" + 2).text("Servings: " + response.servings);
-    $("#dataLinkToRecipe" + 2).attr("href", response.sourceUrl);
-    $("#dataLinkToRecipe" + 2).text(response.sourceUrl);
-    // }
+      response.results[indexID].id +
+      "/information?includeNutrition=false&apiKey=0dd700bb292b45f0808607207442926f";
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      $("#imageRecipe" + targetRow).attr("src", response.image);
+      $("#dataTitle" + targetRow).text(response.title);
+      $("#dataRating" + targetRow).text(
+        "Spoonacular Rating: " + response.spoonacularScore + "%"
+      );
+      $("#dataReadyMins" + targetRow).text(
+        "Ready in: " + response.readyInMinutes + " Mins"
+      );
+      $("#dataServings" + targetRow).text("Servings: " + response.servings);
+      $("#dataLinkToRecipe" + targetRow).attr("href", response.sourceUrl);
+      $("#dataLinkToRecipe" + targetRow).text(response.sourceUrl);
+    });
   });
-});
+}
+for (b = 0; b < 5; b++) {
+  getDataAndAttach(b, b + 1);
+}
+
+// $.ajax({
+//   url:
+//     "https://api.spoonacular.com/recipes/" +
+//     response.results[1].id +
+//     "/information?includeNutrition=false&apiKey=0dd700bb292b45f0808607207442926f",
+//   method: "GET"
+// }).then(function(response) {
+//   console.log(response);
+//   // for (c = 1; c < 3; c++) {
+//   $("#imageRecipe" + 2).attr("src", response.image);
+//   $("#dataTitle" + 2).text(response.title);
+//   $("#dataRating" + 2).text(
+//     "Spoonacular Rating: " + response.spoonacularScore + "%"
+//   );
+//   $("#dataReadyMins" + 2).text(
+//     "Ready in: " + response.readyInMinutes + " Mins"
+//   );
+//   $("#dataServings" + 2).text("Servings: " + response.servings);
+//   $("#dataLinkToRecipe" + 2).attr("href", response.sourceUrl);
+//   $("#dataLinkToRecipe" + 2).text(response.sourceUrl);
+//   // }
+// });
 
 // Yelp
 // $.ajax({
