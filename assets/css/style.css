@@ -10,6 +10,7 @@ body {
   position: relative;
   font-family: Arial, Helvetica, sans-serif;
   background: #722e2e;
+  font-size: x-large;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,29 +47,6 @@ body {
   background-size: cover;
 }  
 
-.button {
-  height: 108%;
-  margin-top: 0px;
-  margin-right: 0px;
-  font-size: 110%;
-  background: rgb(191, 187, 187);
-  border: 1px solid black;
-  cursor: pointer;
-  border-radius: 0px 25px 25px 0px;
-  border-left: 0px;
-  float: left;
-  width: 10%;
-  position: relative;
-  top: 1%;
-  padding-right: 3%;
-  background-color: antiquewhite;
-}  
-
-
-.button:hover {
-  background: red;
-  cursor: pointer;
-}  
 
 .eatIn {
   color: #e73b3b;
@@ -87,7 +65,21 @@ body {
   border-radius: 25px 0px 0px 25px;
   border-right: 0px;
   float: left;
-  width: 84%;
+  width: 72%;
+  border: 1px solid black;
+  background-color: antiquewhite;
+}
+
+.inputLocation {
+  position: relative;
+  top: 6%;
+  height: 100%;
+  font-size: 140%;
+  padding-left: 3%;
+  border-radius: 25px 0px 0px 25px;
+  border-right: 0px;
+  float: left;
+  width: 48%;
   border: 1px solid black;
   background-color: antiquewhite;
 }
@@ -101,26 +93,74 @@ body {
   background: rgb(44, 99, 167);
 }      
 
+.button {
+  height: 107%;
+  margin-top: 0px;
+  margin-right: 0px;
+  font-size: 110%;
+  background: rgb(191, 187, 187);
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 0px 25px 25px 0px;
+  border-left: 0px;
+  float: left;
+  width: 10%;
+  position: relative;
+  top: 1%;
+  padding-right: 3%;
+  background-color: antiquewhite;
+}  
+
+.locationButton {
+  height: 107%;
+  margin-top: 0px;
+  margin-right: 0px;
+  font-size: 110%;
+  background: rgb(191, 187, 187);
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 0px 25px 25px 0px;
+  border-left: 0px;
+  float: left;
+  width: 10%;
+  position: relative;
+  top: 6%;
+  padding-right: 3%;
+  padding-top: 8px;
+  background-color: antiquewhite;
+}
+
+.locationButton:hover {
+  background: red;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: red;
+  cursor: pointer;
+}  
+
 .searchBox {
   position: absolute;
-  top: 32%;
+  top: 52%;
   text-align: center;
   font-family: 'Gloria Hallelujah', cursive;
   padding-bottom: 12px;
   padding-top: 8px;
-  width: 50%;
-  height: 50px;
+  width: 40%;
+  height: 8%;
 }            
 
 .searchIcon {
   position: relative;
   width: auto;
+  font-size: 4%;
 }
 
 .slider {
   position: absolute;
-  top: 45%;
-  width: 7.7494%;  
+  top: 76%;
+  width: 110px;  
   height: 50px;
   background: #eff0d8;
   border-radius: 50px;
@@ -130,10 +170,10 @@ body {
 
 .title {
   position: absolute;
-  top: 16%;
+  top: 9%;
   color: #eff0d8;
   text-align: center;
-  font-size: 3em;
+  font-size: 3.25em;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
