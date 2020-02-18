@@ -182,12 +182,14 @@ body {
 #eatInHeader {
   height: 15vh;
   border-bottom: solid;
+  background: url(../images/recipePic.jpg);
 }
 
 #inputRecipe {
   width: 100%;
   margin: 0px 15%;
   border: solid;
+  background-color: #fff;
 }
 
 #listResultBox {
