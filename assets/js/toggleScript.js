@@ -9,7 +9,6 @@ $(document).ready(function() {
     $('.inputLocation').remove();
 })
 
-
 slider.addEventListener('click', () => {
     ball.classList.toggle('right');
     eatInText.classList.toggle('active');
