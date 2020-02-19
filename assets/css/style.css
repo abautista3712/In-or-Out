@@ -75,7 +75,7 @@ body {
   height: 100%;
   font-size: 140%;
   padding-left: 3%;
-  border-radius: 25px 0px 0px 25px;
+  border-radius: 25px 25px 25px 25px;
   border-right: 0px;
   float: left;
   width: 48%;
@@ -108,30 +108,6 @@ body {
   top: 1%;
   padding-right: 3%;
   background-color: antiquewhite;
-}
-
-.locationButton {
-  height: 107%;
-  margin-top: 0px;
-  margin-right: 0px;
-  font-size: 110%;
-  background: rgb(191, 187, 187);
-  border: 1px solid black;
-  cursor: pointer;
-  border-radius: 0px 25px 25px 0px;
-  border-left: 0px;
-  float: left;
-  width: 10%;
-  position: relative;
-  top: 6%;
-  padding-right: 3%;
-  padding-top: 8px;
-  background-color: antiquewhite;
-}
-
-.locationButton:hover {
-  background: red;
-  cursor: pointer;
 }
 
 .button:hover {
