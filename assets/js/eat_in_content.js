@@ -43,22 +43,6 @@ for (a = 1; a < 6; a++) {
   );
 }
 // Spoonacular
-var queryTerm = localStorage.getItem("foodItem");
-$.ajax({
-  url:
-    "https://api.spoonacular.com/recipes/search?query=" +
-    queryTerm +
-    "&instructionsRequired=true&number=5&apiKey=0dd700bb292b45f0808607207442926f",
-  method: "GET"
-}).then(function(response) {
-  console.log(response);
-  if (response.results.length < 1) {
-    $("<div>")
-      .text("No results found. Please search for another recipe.")
-      .appendTo("#listResultsBox1");
-  }
-});
-
 function getDataAndAttach(indexID, targetRow) {
   var queryTerm = localStorage.getItem("foodItem");
   $.ajax({
