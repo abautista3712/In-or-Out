@@ -20,7 +20,7 @@ slider.addEventListener('click', () => {
     if (addLocationInput < 1) {
         addLocationInput++;
         //adds location input and button when clicked on eat out
-        $('.searchBox').append('<input class="inputLocation" type="text" placeholder="Enter city..." name="input[]"><button id="location" class="locationButton">City</button>')
+        $('.searchBox').append('<input class="inputLocation" type="text" placeholder="Enter city..." name="input[]">')
     } else if (addLocationInput = 1) {
         //removes the location input and button when clicked back to eat in
         $('.inputLocation').remove();
