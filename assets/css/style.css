@@ -179,6 +179,17 @@ body {
   margin-bottom: 4px;
 }
 
+.footer {
+  background: black;
+  color: rgb(182, 154, 154);
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4%;
+  font-size: x-small;
+}
 #eatInHeader {
   height: 15vh;
   border-bottom: solid;
