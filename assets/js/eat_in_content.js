@@ -137,8 +137,8 @@ for (b = 0; b < 5; b++) {
 // }
 
 $("#inputRecipeBtn").on("click", function() {
-  // console.log($("#inputRecipe").val());
-  location.href = "./index.html";
+  localStorage.setItem("foodItem", $("#inputRecipe").val());
+  console.log(localStorage);
 });
 
 $(document).on("keypress", function(e) {
