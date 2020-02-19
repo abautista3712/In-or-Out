@@ -1,0 +1,35 @@
+.googleMap {
+    float: right;
+    padding: 20px;
+    width: 30%;
+        background:blue;
+        box-sizing: border-box;
+      }
+      
+
+article {
+        float: left;
+        padding: 20px;
+        width: 70%;
+        background-color: #f1f1f1;
+        box-sizing: border-box;
+        background-color:beige;
+        
+      }
+      
+div.container{
+    box-sizing: border-box;
+}
+
+
+ #map {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+ /* Might need to delte if it affexcts */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 20px;
+  }
