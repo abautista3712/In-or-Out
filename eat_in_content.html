@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Eat Inside Content</title>
+  </head>
+  <body>
+    <div id="header" class="row">
+      <div id="eatInHeader" class="col s12 valign-wrapper">
+        <div id="inputRecipeRow" class="row noBotMargin valign-wrapper">
+          <div class="col s11">
+            <input id="inputRecipe" type="text" placeholder="Search Recipes" />
+          </div>
+          <div id="inputRecipeBtn" class="btn" type="submit">
+            <i class="material-icons">search</i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="eatInContent" class="container"></div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/js/eat_in_content.js"></script>
+  </body>
+</html>
