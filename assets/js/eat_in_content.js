@@ -138,7 +138,9 @@ for (b = 0; b < 5; b++) {
 
 $("#inputRecipeBtn").on("click", function() {
   localStorage.setItem("foodItem", $("#inputRecipe").val());
-  console.log(localStorage);
+  for (b = 0; b < 5; b++) {
+    getDataAndAttach(b, b + 1);
+  }
 });
 
 $(document).on("keypress", function(e) {
