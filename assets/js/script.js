@@ -14,6 +14,18 @@ $(document).ready(function () {
         localStorage.setItem('foodItem', choice);
     };
     
+    // if () {
+        
+    // } else {
+        
+    // }
+
+    $('.button').on('click', function(event) {
+        event.preventDefault()
+        console.log('i got clicked')
+        location.href = "./eat_in_content.html";
+
+    })
     // the function below retrieves the input
 
     // function getInput() {
