@@ -137,12 +137,17 @@ for (b = 0; b < 5; b++) {
 // }
 
 $("#inputRecipeBtn").on("click", function() {
-  // console.log($("#inputRecipe").val());
-  location.href = "./index.html";
+  localStorage.setItem("foodItem", $("#inputRecipe").val());
+  for (b = 0; b < 5; b++) {
+    getDataAndAttach(b, b + 1);
+  }
 });
 
 $(document).on("keypress", function(e) {
   if (e.which === 13) {
-    console.log($("#inputRecipe").val());
+    localStorage.setItem("foodItem", $("#inputRecipe").val());
+    for (b = 0; b < 5; b++) {
+      getDataAndAttach(b, b + 1);
+    }
   }
 });
