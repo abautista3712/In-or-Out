@@ -10,10 +10,8 @@ $.ajax({
   }
 }).then(function(response) {
   console.log(response.businesses);
-  var responseID = response.businesses[0].id;
-
-  console.log(response.businesses[0]);
-  $("#dataCoordinates").text(response.businesses[0].coordinates);
+  console.log(response.businesses[0].coordinates.latitude);
+  console.log(response.businesses[0].coordinates.longitude);
 
   // // Iterative for-loop used to create results boxes
   for (a = 1; a < 6; a++) {
@@ -22,16 +20,15 @@ $.ajax({
       "#eatOutContent"
     );
     // Wrapper used to restrict sizing/positioning on img child
-    $("<div>", { id: "image" + a, class: "col s4" }).appendTo(
+    $("<div>", { id: "imageSizing" + a, class: "col s4" }).appendTo(
       "#listResultsBox" + a
     );
     // Img element for recipe picture
     $("<img>", {
-      id: "image" + a,
+      id: "imageRestaurant" + a,
       class: "col s12",
       alt: "Restaurant Pic"
-    }).appendTo("#image" + a);
-
+    }).appendTo("#imageSizing" + a);
     // Wrapper used to restrict sizing/positioning on data returned from API
     $("<div>", { id: "dataResultsWrapper" + a, class: "col s6" }).appendTo(
       "#listResultsBox" + a
@@ -40,27 +37,22 @@ $.ajax({
     $("<div>", { id: "dataTitle" + a, class: "col s12" })
       .text(".name")
       .appendTo("#dataResultsWrapper" + a);
-
     // Data: Address
     $("<div>", { id: "dataAddress" + a, class: "col s12" })
       .text("display_address")
       .appendTo("#dataResultsWrapper" + a);
-
     // Data: Phone Number
     $("<div>", { id: "phone_number" + a, class: "col s12" })
       .text("display_phone")
       .appendTo("#dataResultsWrapper" + a);
-
     // Wrapper used to restrict sizing/positioning on recipe link
     $("<div>", { id: "dataLinktoWebsite" + a, class: "col s12" }).appendTo(
       "#dataResultsWrapper" + a
     );
-
     // Data: Restaurant
     $("<a>", { id: "dataLinkToRestaurant" + a })
       .text("url")
       .appendTo("#dataLinktoWebsite" + a);
-
     // Data: Coordinates
     $("<div>", { id: "coordinates" + a, class: "col s12" })
       .text("latitude, longitude")
@@ -101,29 +93,29 @@ function initMap() {
 //     //console.log(init)
 
 //Yelp
-var location2 = "Los Angeles";
-$.ajax({
-  url:
-    "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
-    location2,
-  method: "GET",
-  headers: {
-    Authorization:
-      "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
-  }
-}).then(function(response) {
-  console.log(response.businesses);
-  var responseID = response.businesses[0].id;
+// var location2 = "Los Angeles";
+// $.ajax({
+//   url:
+//     "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
+//     location2,
+//   method: "GET",
+//   headers: {
+//     Authorization:
+//       "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
+//   }
+// }).then(function(response) {
+//   console.log(response.businesses);
+// var responseID = response.businesses[0].id;
 
-  console.log(response.businesses[0].image_url);
-  $("#imageResults").attr("src", response.businesses[0].image_url);
-  $("#dataName").text(response.businesses[0].name);
-  $("#dataDirections").text(response.businesses[0].location.display_address);
-  $("#dataPhone").text(response.businesses[0].display_phone);
+// console.log(response.businesses[0].image_url);
+// $("#imageResults").attr("src", response.businesses[0].image_url);
+// $("#dataName").text(response.businesses[0].name);
+// $("#dataDirections").text(response.businesses[0].location.display_address);
+// $("#dataPhone").text(response.businesses[0].display_phone);
 
-  $("#dataURLtoWebsite").attr("href", response.businesses[0].url);
-  $("#dataURLtoWebsite").text(response.businesses[0].url);
-  console.log(response.businesses[0].url);
+// $("#dataURLtoWebsite").attr("href", response.businesses[0].url);
+// $("#dataURLtoWebsite").text(response.businesses[0].url);
+// console.log(response.businesses[0].url);
 
-  var Data = $("#");
-});
+// var Data = $("#");
+// });
