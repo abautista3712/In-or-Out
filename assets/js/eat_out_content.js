@@ -44,40 +44,53 @@ for (a = 1; a < 6; a++) {
     .appendTo("#dataLinktoWebsite" + a);
 }
 
-var loc = "Los Angeles";
-$.ajax({
-  url:
-    "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
-    loc,
-  method: "GET",
-  headers: {
-    Authorization:
-      "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
-  }
-}).then(function(response) {
-  console.log(response.businesses);
-  console.log(response.businesses[0].coordinates.latitude);
-  console.log(response.businesses[0].coordinates.longitude);
-  $("#imageRestaurant" + 1).attr("src", response.businesses[0].image_url);
-  $("#dataTitle" + 1).text(response.businesses[0].name);
-  $("#dataRating" + 1).text(
-    "Yelp Rating: " + response.businesses[0].rating + "/5"
-  );
-  $("#dataAddress" + 1).text(
-    response.businesses[0].location.address1 +
-      " " +
-      response.businesses[0].location.address2 +
-      " " +
-      response.businesses[0].location.address3 +
-      " " +
-      response.businesses[0].location.city +
-      " " +
-      response.businesses[0].location.zip_code
-  );
-  $("#dataPhone" + 1).text(response.businesses[0].display_phone);
-  $("#dataLinkToRestaurant" + 1).attr("href", response.businesses[0].url);
-  $("#dataLinkToRestaurant" + 1).text("Full Review on Yelp");
-});
+function getDataAndAttach(indexID, targetRow) {
+  var loc = "Los Angeles";
+  $.ajax({
+    url:
+      "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
+      loc,
+    method: "GET",
+    headers: {
+      Authorization:
+        "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
+    }
+  }).then(function(response) {
+    console.log(response.businesses);
+    console.log(response.businesses[0].coordinates.latitude);
+    console.log(response.businesses[0].coordinates.longitude);
+    $("#imageRestaurant" + targetRow).attr(
+      "src",
+      response.businesses[indexID].image_url
+    );
+    $("#dataTitle" + targetRow).text(response.businesses[indexID].name);
+    $("#dataRating" + targetRow).text(
+      "Yelp Rating: " + response.businesses[indexID].rating + "/5"
+    );
+    $("#dataAddress" + targetRow).text(
+      response.businesses[indexID].location.address1 +
+        " " +
+        response.businesses[indexID].location.address2 +
+        " " +
+        response.businesses[indexID].location.address3 +
+        " " +
+        response.businesses[indexID].location.city +
+        " " +
+        response.businesses[indexID].location.zip_code
+    );
+    $("#dataPhone" + targetRow).text(
+      response.businesses[indexID].display_phone
+    );
+    $("#dataLinkToRestaurant" + targetRow).attr(
+      "href",
+      response.businesses[indexID].url
+    );
+    $("#dataLinkToRestaurant" + targetRow).text("Full Review on Yelp");
+  });
+}
+for (b = 0; b < 5; b++) {
+  getDataAndAttach(b, b + 1);
+}
 
 // function getDataAndAttach(indexID, targetRow) {
 // var location = "Los Angeles";
