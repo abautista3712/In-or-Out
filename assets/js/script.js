@@ -41,13 +41,20 @@ $(document).ready(function () {
         console.log(choice);
         localStorage.setItem('foodItem', choice);
     };
-    
-    $('.button').on('click', function(event) {
-        event.preventDefault()
-        console.log('i got clicked')
-        location.href = "./eat_in_content.html";
 
+    $('.button').on('click', function (event) {
+        if (addLocationInput < 1) {
+            event.preventDefault()
+            console.log('eat in clicked')
+            location.href = "./eat_in_content.html";
+        } else {
+            event.preventDefault()
+            console.log('eat out clicked')
+            location.href = "./eat_out_content.html";
+        }
     })
+
+        
 
     function storeLocationInput() {
         var userlocation = $('.inputLocation').val();
