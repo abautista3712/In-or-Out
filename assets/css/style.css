@@ -2,8 +2,19 @@
   transition: all 1s ease-in-out;
 }
 
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  box-sizing: border-box;
+  background-color: beige;
+}
+
 body {
+  /* height: 100%; */
   margin: 0;
+  /* padding: 20px; */
 }
 
 .mainWrapper {
@@ -53,6 +64,14 @@ body {
 
 .eatOut {
   color: rgb(44, 99, 167);
+}
+
+.googleMap {
+  float: right;
+  padding: 20px;
+  width: 30%;
+  background: blue;
+  box-sizing: border-box;
 }
 
 .inputText {
@@ -172,6 +191,12 @@ body {
   background: url(../images/recipePic.jpg);
 }
 
+#eatOutHeader {
+  height: 15vh;
+  border-bottom: solid;
+  background: url(../images/restaurantPic2Edited.jpg);
+}
+
 #inputRecipeBtn {
   vertical-align: text-top;
   border: solid;
@@ -190,7 +215,9 @@ body {
 }
 
 #map {
-  height: 100vh;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px;
 }
 
 #siteName {
