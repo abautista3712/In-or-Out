@@ -2,14 +2,14 @@
   transition: all 1s ease-in-out;
 }
 
-article {
+/* article {
   float: left;
   padding: 20px;
   width: 70%;
   background-color: #f1f1f1;
   box-sizing: border-box;
   background-color: beige;
-}
+} */
 
 body {
   /* height: 100%; */
@@ -64,14 +64,6 @@ body {
 
 .eatOut {
   color: rgb(44, 99, 167);
-}
-
-.googleMap {
-  float: right;
-  padding: 20px;
-  width: 30%;
-  background: blue;
-  box-sizing: border-box;
 }
 
 .inputText {
@@ -191,6 +183,11 @@ body {
   background: url(../images/recipePic.jpg);
 }
 
+#eatOutContent {
+  float: left;
+  width: 35vw;
+}
+
 #eatOutHeader {
   height: 15vh;
   border-bottom: solid;
@@ -215,9 +212,8 @@ body {
 }
 
 #map {
-  height: 100%;
+  height: 100vh;
   box-sizing: border-box;
-  padding: 20px;
 }
 
 #siteName {

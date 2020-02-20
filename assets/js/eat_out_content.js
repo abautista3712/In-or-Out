@@ -33,7 +33,7 @@ $.ajax({
     }).appendTo("#image" + a);
 
     // Wrapper used to restrict sizing/positioning on data returned from API
-    $("<div>", { id: "dataResultsWrapper" + a, class: "col s8" }).appendTo(
+    $("<div>", { id: "dataResultsWrapper" + a, class: "col s6" }).appendTo(
       "#listResultsBox" + a
     );
     // Data: Title
@@ -76,7 +76,7 @@ function initMap() {
 
   // The map, centered at Uluru
   var map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 4,
+    zoom: 6,
     center: uluru
   });
   // The marker, positioned at Uluru
