@@ -45,7 +45,7 @@ for (a = 1; a < 6; a++) {
 }
 
 function getDataAndAttach(indexID, targetRow) {
-  var loc = "Los Angeles";
+  var loc = "San Francisco";
   $.ajax({
     url:
       "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
@@ -92,50 +92,6 @@ for (b = 0; b < 5; b++) {
   getDataAndAttach(b, b + 1);
 }
 
-// function getDataAndAttach(indexID, targetRow) {
-// var location = "Los Angeles";
-// $.ajax({
-//   url:
-//     "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
-//     location,
-//   method: "GET",
-//   headers: {
-//     Authorization:
-//       "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
-//   }
-//   }).then(function(response) {
-//     if (response.results.length < 1) {
-//       $("<div>")
-//         .text("No results found. Please search for another recipe.")
-//         .appendTo("#listResultsBox1");
-//     } else {
-//       var queryURL =
-//         "https://api.spoonacular.com/recipes/" +
-//         response.results[indexID].id +
-//         "/information?includeNutrition=false&apiKey=0dd700bb292b45f0808607207442926f";
-//       $.ajax({
-//         url: queryURL,
-//         method: "GET"
-//       }).then(function(response) {
-//         $("#imageRecipe" + targetRow).attr("src", response.image);
-//         $("#dataTitle" + targetRow).text(response.title);
-//         $("#dataRating" + targetRow).text(
-//           "Spoonacular Rating: " + response.spoonacularScore + "%"
-//         );
-//         $("#dataReadyMins" + targetRow).text(
-//           "Ready in: " + response.readyInMinutes + " Mins"
-//         );
-//         $("#dataServings" + targetRow).text("Servings: " + response.servings);
-//         $("#dataLinkToRecipe" + targetRow).attr("href", response.sourceUrl);
-//         $("#dataLinkToRecipe" + targetRow).text(response.sourceUrl);
-//       });
-//     }
-//   });
-// }
-// for (b = 0; b < 5; b++) {
-//   getDataAndAttach(b, b + 1);
-// }
-
 //  Google Maps
 // Initialize and add the map
 function initMap() {
@@ -167,31 +123,3 @@ function initMap() {
 //     google.maps.event.addDomListener(window, 'load', init);
 
 //     //console.log(init)
-
-//Yelp
-// var location2 = "Los Angeles";
-// $.ajax({
-//   url:
-//     "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
-//     location2,
-//   method: "GET",
-//   headers: {
-//     Authorization:
-//       "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
-//   }
-// }).then(function(response) {
-//   console.log(response.businesses);
-// var responseID = response.businesses[0].id;
-
-// console.log(response.businesses[0].image_url);
-// $("#imageResults").attr("src", response.businesses[0].image_url);
-// $("#dataName").text(response.businesses[0].name);
-// $("#dataDirections").text(response.businesses[0].location.display_address);
-// $("#dataPhone").text(response.businesses[0].display_phone);
-
-// $("#dataURLtoWebsite").attr("href", response.businesses[0].url);
-// $("#dataURLtoWebsite").text(response.businesses[0].url);
-// console.log(response.businesses[0].url);
-
-// var Data = $("#");
-// });
