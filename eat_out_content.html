@@ -15,37 +15,38 @@
     <div id="header" class="row">
       <div id="eatOutHeader" class="col s12 valign-wrapper">
         <div id="inputRecipe" class="row noBotMargin">
-          <div class="col s12"> </div>
+          <div class="col s12"></div>
         </div>
       </div>
     </div>
 
-<div class=contiainer>
-
-    <section>   
+    <div class="contiainer">
+      <section>
         <article>
-    <div id="eatOutContent" class="container"></div>
+          <div id="eatOutContent" class="container"></div>
+          <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"
+          ></script>
+          <script src="eat_out_content.js"></script>
+          <!-- <script src="./assets/js/script-eat-out.js"></script>  -->
+        </article>
+      </section>
+    </div>
+    <div class="inputLocation"></div>
+
+    <div id="map"></div>
+    <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
+    <!-- Replace the value of the key parameter with your own API key. -->
     <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtLJPj9kEVX8BT1o6wYrmxos4e7NY3CYc&callback=initMap"
+      async
+      defer
     ></script>
-    <script src="eat_out_content.js"></script>
-    <!-- <script src="./assets/js/script-eat-out.js"></script>  -->
-            </article>
-    </section>
-</div>
-<div class="inputLocation"></div>
-
-<div id="map"></div>
-<script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
-<!-- Replace the value of the key parameter with your own API key. -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtLJPj9kEVX8BT1o6wYrmxos4e7NY3CYc&callback=initMap" async defer></script>
-
   </body>
-  <br>
+  <br />
   <footer>
-        <p>Copyright&#169;
-            </p>
-     </footer>
+    <p>Copyright&#169;</p>
+  </footer>
 </html>
