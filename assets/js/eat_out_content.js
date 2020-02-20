@@ -20,7 +20,11 @@ for (a = 1; a < 6; a++) {
   );
   // Data: Title
   $("<div>", { id: "dataTitle" + a, class: "col s12" })
-    .text(".name")
+    .text("name")
+    .appendTo("#dataResultsWrapper" + a);
+  // Data: Rating
+  $("<div>", { id: "dataRating" + a, class: "col s12" })
+    .text("Yelp Rating")
     .appendTo("#dataResultsWrapper" + a);
   // Data: Address
   $("<div>", { id: "dataAddress" + a, class: "col s12" })
@@ -38,10 +42,6 @@ for (a = 1; a < 6; a++) {
   $("<a>", { id: "dataLinkToRestaurant" + a })
     .text("url")
     .appendTo("#dataLinktoWebsite" + a);
-  // Data: Coordinates
-  $("<div>", { id: "coordinates" + a, class: "col s12" })
-    .text("latitude, longitude")
-    .appendTo("#dataResultsWrapper" + a);
 }
 
 var loc = "Los Angeles";
@@ -60,6 +60,9 @@ $.ajax({
   console.log(response.businesses[0].coordinates.longitude);
   $("#imageRestaurant" + 1).attr("src", response.businesses[0].image_url);
   $("#dataTitle" + 1).text(response.businesses[0].name);
+  $("#dataRating" + 1).text(
+    "Yelp Rating: " + response.businesses[0].rating + "/5"
+  );
   $("#dataAddress" + 1).text(
     response.businesses[0].location.address1 +
       " " +
@@ -72,9 +75,8 @@ $.ajax({
       response.businesses[0].location.zip_code
   );
   $("#dataPhone" + 1).text(response.businesses[0].display_phone);
-  $("#dataServings" + 1).text("Servings: " + response.servings);
-  $("#dataLinkToRecipe" + 1).attr("href", response.sourceUrl);
-  $("#dataLinkToRecipe" + 1).text(response.sourceUrl);
+  $("#dataLinkToRestaurant" + 1).attr("href", response.businesses[0].url);
+  $("#dataLinkToRestaurant" + 1).text("Full Review on Yelp");
 });
 
 // function getDataAndAttach(indexID, targetRow) {
