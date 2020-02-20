@@ -123,3 +123,15 @@ function initMap() {
 //     google.maps.event.addDomListener(window, 'load', init);
 
 //     //console.log(init)
+
+// $.ajax({
+//   url:
+//     "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=San+Diego&term=taco",
+//   method: "GET",
+//   headers: {
+//     Authorization:
+//       "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
+//   }
+// }).then(function(response) {
+//   console.log(response);
+// });
