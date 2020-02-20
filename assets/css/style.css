@@ -195,6 +195,12 @@ body {
   background: url(../images/recipePic.jpg);
 }
 
+#eatOutHeader {
+  height: 15vh;
+  border-bottom: solid;
+  background: url(../images/restaurantPic2Edited.jpg);
+}
+
 #inputRecipeBtn {
   vertical-align: text-top;
   border: solid;
