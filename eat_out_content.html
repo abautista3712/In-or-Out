@@ -11,19 +11,21 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Eat Out Content</title>
   </head>
   <body>
     <div id="header" class="row">
-      <div id="eatOutHeader" class="col s12 valign-wrapper">
+     <div id="eatOutHeader" class="col s12 valign-wrapper" > 
+       <!--Home Button -->
+        <button class="btn" onclick="Homepage()"><i class="material-icons">home</i></button>
         <div id="inputRecipeRow" class="row noBotMargin valign-wrapper">
           <div class="col s6">
             <input
               id="inputFood"
               type="text"
-              placeholder="Search Restaurants"
-            />
+              placeholder="Search Restaurants"/>
           </div>
           <div class="col s5">
             <input id="inputLocation" type="text" placeholder="Location" />
