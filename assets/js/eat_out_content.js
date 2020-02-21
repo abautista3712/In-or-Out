@@ -3,6 +3,8 @@
 var theLatitudes = [];
 var theLongitudes = [];
 
+
+
 function Homepage() {
   window.location = "index.html";
 }
@@ -130,6 +132,11 @@ $("#inputRecipeBtn").on("click", function() {
     getDataAndAttach(b, b + 1);
   }
 });
+
+$("#inputRecipeBtn").on("click", function() {
+  theLatitudes = [];
+  theLongitudes = [];
+})
 
 $(document).on("keypress", function(e) {
   if (e.which === 13) {
