@@ -23,7 +23,7 @@ for (a = 1; a < 6; a++) {
     "#listResultsBox" + a
   );
   // Data: Title
-  $("<div>", { id: "dataTitle" + a, class: "col s12" }).appendTo(
+  $("<div>", { id: "dataTitle" + a, class: "col s12 placeName" }).appendTo(
     "#dataResultsWrapper" + a
   );
   // Data: Spoonacular Rating

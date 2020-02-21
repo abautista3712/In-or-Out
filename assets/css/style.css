@@ -103,6 +103,10 @@ body {
   background: rgb(44, 99, 167);
 }
 
+.placeName {
+  font-size: larger;
+}
+
 .button {
   height: 107%;
   margin-top: 0px;
