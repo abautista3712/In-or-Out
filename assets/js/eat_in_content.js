@@ -1,3 +1,8 @@
+//Home Button 
+function Homepage() {
+  window.location="index.html";
+}
+
 // // Iterative for-loop used to create results boxes
 for (a = 1; a < 6; a++) {
   // Materialize Row
