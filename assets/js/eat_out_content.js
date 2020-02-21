@@ -1,7 +1,7 @@
 //Home Function//
 
-var theLatitude;
-var theLongitude;
+var theLatitudes = [];
+var theLongitudes = [];
 
 function Homepage() {
   window.location = "index.html";
@@ -79,8 +79,8 @@ function getDataAndAttach(indexID, targetRow) {
     console.log(response.businesses);
     console.log(response.businesses[0].coordinates.latitude);
     console.log(response.businesses[0].coordinates.longitude);
-    theLatitude = (response.businesses[indexID].coordinates.latitude);
-    theLongitude = (response.businesses[indexID].coordinates.longitude);
+    theLatitudes.push(response.businesses[indexID].coordinates.latitude);
+    theLongitudes.push(response.businesses[indexID].coordinates.longitude);
 
     $("#imageRestaurant" + targetRow).attr(
       "src",
@@ -118,8 +118,6 @@ function getDataAndAttach(indexID, targetRow) {
 
   });
 }
-
-console.log(theLatitude, theLongitude);
 
 for (b = 0; b < 5; b++) {
   getDataAndAttach(b, b + 1);
@@ -161,7 +159,11 @@ $(document).on("keypress", function(e) {
 // Initialize and add the map
 function initMap() {
   // The location of Uluru
-  var thePlace1 = { lat: theLatitude, lng: theLongitude };
+  var thePlace1 = { lat: theLatitudes[0], lng: theLongitudes[0] };
+  var thePlace2 = { lat: theLatitudes[1], lng: theLongitudes[1] };
+  var thePlace3 = { lat: theLatitudes[2], lng: theLongitudes[2] };
+  var thePlace4 = { lat: theLatitudes[3], lng: theLongitudes[3] };
+  var thePlace5 = { lat: theLatitudes[4], lng: theLongitudes[4] };
   // var thePlace2 = { lat: theLatitude2, lng: theLongitude2 };
   // var thePlace3 = { lat: theLatitude3, lng: theLongitude3 };
   // var thePlace4 = { lat: theLatitude4, lng: theLongitude4 };
@@ -169,14 +171,13 @@ function initMap() {
 
   // The map, centered at Uluru
   var map = new google.maps.Map(
-    document.getElementById('map'), { zoom: 14, center: thePlace1 });
+    document.getElementById('map'), { zoom: 12, center: thePlace1 });
   // The marker, positioned at Uluru
   new google.maps.Marker({ position: thePlace1, map: map });
-  // new google.maps.Marker({ position: thePlace2, map: map });
-  // new google.maps.Marker({ position: thePlace3, map: map });
-  // new google.maps.Marker({ position: thePlace4, map: map });
-  // new google.maps.Marker({ position: thePlace5, map: map });
-
+  new google.maps.Marker({ position: thePlace2, map: map });
+  new google.maps.Marker({ position: thePlace3, map: map });
+  new google.maps.Marker({ position: thePlace4, map: map });
+  new google.maps.Marker({ position: thePlace5, map: map });
 }
 // //function myMap() {
 //     var mapProp= {
