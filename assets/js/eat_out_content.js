@@ -25,11 +25,10 @@ for (a = 1; a < 6; a++) {
     alt: "Restaurant Pic"
   }).appendTo("#imageSizing" + a);
   // Wrapper used to restrict sizing/positioning on data returned from API
-  $("<div>", { id: "dataResultsWrapper" + a, class: "col s6" }).appendTo(
-    "#listResultsBox" + a
-  );
+  $("<div>", { id: "dataResultsWrapper" + a, class: "col s6" })
+    .appendTo("#listResultsBox" + a);
   // Data: Title
-  $("<div>", { id: "dataTitle" + a, class: "col s12" })
+  $("<div>", { id: "dataTitle" + a, class: "col s12 placeName" })
     .text("name")
     .appendTo("#dataResultsWrapper" + a);
   // Data: Price
@@ -71,8 +70,8 @@ function getDataAndAttach(indexID, targetRow) {
       location +
       "&term=" +
       queryTerm,
-    method: "GET",
-    headers: {
+      method: "GET",
+      headers: {
       Authorization:
         "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
     }
@@ -96,7 +95,7 @@ function getDataAndAttach(indexID, targetRow) {
       "Yelp Rating: " + response.businesses[indexID].rating + "/5"
     );
     $("#dataAddress" + targetRow).text(
-      response.businesses[indexID].location.address1 +
+        response.businesses[indexID].location.address1 +
         " " +
         response.businesses[indexID].location.address2 +
         " " +
@@ -115,7 +114,7 @@ function getDataAndAttach(indexID, targetRow) {
     );
     $("#dataLinkToRestaurant" + targetRow).text("Full Review on Yelp");
         
-    // initMap();
+    initMap();
 
   });
 }
