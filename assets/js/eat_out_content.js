@@ -1,12 +1,12 @@
 //Home Function//
 
 function Homepage() {
-  window.location="index.html";
+  window.location = "index.html";
 }
-
 
 // // Iterative for-loop used to create results boxes
 for (a = 1; a < 6; a++) {
+  var divider = "\u25CF";
   // Materialize Row
   $("<div>", { id: "listResultsBox" + a, class: "row" }).appendTo(
     "#eatOutContent"
@@ -28,6 +28,14 @@ for (a = 1; a < 6; a++) {
   // Data: Title
   $("<div>", { id: "dataTitle" + a, class: "col s12" })
     .text("name")
+    .appendTo("#dataResultsWrapper" + a);
+  // Data: Price
+  $("<div>", { id: "dataPrice" + a, class: "col s6" })
+    .text("Yelp Price")
+    .appendTo("#dataResultsWrapper" + a);
+  // Data: Category
+  $("<div>", { id: "dataCategory" + a, class: "col s6" })
+    .text("Yelp Category")
     .appendTo("#dataResultsWrapper" + a);
   // Data: Rating
   $("<div>", { id: "dataRating" + a, class: "col s12" })
@@ -74,6 +82,10 @@ function getDataAndAttach(indexID, targetRow) {
       response.businesses[indexID].image_url
     );
     $("#dataTitle" + targetRow).text(response.businesses[indexID].name);
+    $("#dataPrice" + targetRow).text(response.businesses[indexID].price);
+    $("#dataCategory" + targetRow).text(
+      response.businesses[indexID].categories[0].title
+    );
     $("#dataRating" + targetRow).text(
       "Yelp Rating: " + response.businesses[indexID].rating + "/5"
     );
