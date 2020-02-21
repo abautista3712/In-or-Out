@@ -45,11 +45,14 @@ for (a = 1; a < 6; a++) {
 }
 
 function getDataAndAttach(indexID, targetRow) {
-  var loc = "San Francisco";
+  var location = localStorage.getItem("foodLocation");
+  var queryTerm = localStorage.getItem("foodItem");
   $.ajax({
     url:
       "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
-      loc,
+      location +
+      "&term=" +
+      queryTerm,
     method: "GET",
     headers: {
       Authorization:
@@ -91,6 +94,24 @@ function getDataAndAttach(indexID, targetRow) {
 for (b = 0; b < 5; b++) {
   getDataAndAttach(b, b + 1);
 }
+
+$("#inputRecipeBtn").on("click", function() {
+  localStorage.setItem("foodItem", $("#inputFood").val());
+  localStorage.setItem("foodLocation", $("#inputLocation").val());
+  for (b = 0; b < 5; b++) {
+    getDataAndAttach(b, b + 1);
+  }
+});
+
+$(document).on("keypress", function(e) {
+  if (e.which === 13) {
+    localStorage.setItem("foodItem", $("#inputFood").val());
+    localStorage.setItem("foodLocation", $("#inputLocation").val());
+    for (b = 0; b < 5; b++) {
+      getDataAndAttach(b, b + 1);
+    }
+  }
+});
 
 //  Google Maps
 // Initialize and add the map
