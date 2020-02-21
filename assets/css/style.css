@@ -222,3 +222,18 @@ body {
   padding-bottom: 12px;
   padding-top: 8px;
 }
+
+/* Home Button */
+
+.btn {
+  background-color:whitesmoke;
+  border: none;
+  color: rgb(191, 187, 187);
+
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(44, 99, 167);
+}
