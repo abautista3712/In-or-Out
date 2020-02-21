@@ -2,10 +2,24 @@
 
 var theLatitudes = [];
 var theLongitudes = [];
+var city = [];
 
 function Homepage() {
   window.location = "index.html";
 }
+      // Animation 
+// $(window).on("load",function(){
+//   $(".loader-wrapper").fadeOut("slow");
+// });
+var myVar;
+  function pageFunction() {
+     myVar = setTimeout(showPage, 3000);
+}
+  function showPage() {
+     document.getElementById("loader").style.display = "none";
+     document.getElementById("Animate").style.display = "block";
+}
+
 
 // // Iterative for-loop used to create results boxes
 for (a = 1; a < 6; a++) {
@@ -32,11 +46,11 @@ for (a = 1; a < 6; a++) {
     .text("name")
     .appendTo("#dataResultsWrapper" + a);
   // Data: Price
-  $("<div>", { id: "dataPrice" + a, class: "col s6" })
+  $("<div>", { id: "dataPrice" + a, class: "col s12" })
     .text("Yelp Price")
     .appendTo("#dataResultsWrapper" + a);
   // Data: Category
-  $("<div>", { id: "dataCategory" + a, class: "col s6" })
+  $("<div>", { id: "dataCategory" + a, class: "col s12" })
     .text("Yelp Category")
     .appendTo("#dataResultsWrapper" + a);
   // Data: Rating
@@ -79,8 +93,10 @@ function getDataAndAttach(indexID, targetRow) {
     console.log(response.businesses);
     console.log(response.businesses[0].coordinates.latitude);
     console.log(response.businesses[0].coordinates.longitude);
+
     theLatitudes.push(response.businesses[indexID].coordinates.latitude);
     theLongitudes.push(response.businesses[indexID].coordinates.longitude);
+
 
     $("#imageRestaurant" + targetRow).attr(
       "src",
@@ -171,7 +187,9 @@ function initMap() {
 
   // The map, centered at Uluru
   var map = new google.maps.Map(
-    document.getElementById('map'), { zoom: 12, center: thePlace1 });
+    document.getElementById('map'), { zoom: 12, center: thePlace1,thePlace2 }
+ 
+    );
   // The marker, positioned at Uluru
   new google.maps.Marker({ position: thePlace1, map: map });
   new google.maps.Marker({ position: thePlace2, map: map });
