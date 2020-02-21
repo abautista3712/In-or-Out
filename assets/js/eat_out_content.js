@@ -1,5 +1,8 @@
 //Home Function//
 
+var theLatitude;
+var theLongitude;
+
 function Homepage() {
   window.location="index.html";
 }
@@ -69,6 +72,9 @@ function getDataAndAttach(indexID, targetRow) {
     console.log(response.businesses);
     console.log(response.businesses[0].coordinates.latitude);
     console.log(response.businesses[0].coordinates.longitude);
+    theLatitude = (response.businesses[indexID].coordinates.latitude);
+    theLongitude = (response.businesses[indexID].coordinates.longitude);
+
     $("#imageRestaurant" + targetRow).attr(
       "src",
       response.businesses[indexID].image_url
@@ -96,8 +102,14 @@ function getDataAndAttach(indexID, targetRow) {
       response.businesses[indexID].url
     );
     $("#dataLinkToRestaurant" + targetRow).text("Full Review on Yelp");
+        
+    // initMap();
+
   });
 }
+
+console.log(theLatitude, theLongitude);
+
 for (b = 0; b < 5; b++) {
   getDataAndAttach(b, b + 1);
 }
@@ -121,20 +133,40 @@ $(document).on("keypress", function(e) {
 });
 
 //  Google Maps
+// // Initialize and add the map
+// function initMap() {
+//   // The location of Uluru
+//   var theCity = { lat: theLatitude, lng: theLongitude };
+
+//   // The map, centered at Uluru
+//   var map = new google.maps.Map(document.getElementById('map'), {
+//     zoom: 4,
+//     center: theCity
+//   });
+//   // The marker, positioned at Uluru
+//   var marker = new google.maps.Marker({ position: theCity, map: map });
+// }
+
 // Initialize and add the map
 function initMap() {
   // The location of Uluru
-  var uluru = { lat: -25.344, lng: 131.036 };
+  var thePlace1 = { lat: theLatitude, lng: theLongitude };
+  // var thePlace2 = { lat: theLatitude2, lng: theLongitude2 };
+  // var thePlace3 = { lat: theLatitude3, lng: theLongitude3 };
+  // var thePlace4 = { lat: theLatitude4, lng: theLongitude4 };
+  // var thePlace5 = { lat: theLatitude5, lng: theLongitude5 };
 
   // The map, centered at Uluru
-  var map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 6,
-    center: uluru
-  });
+  var map = new google.maps.Map(
+    document.getElementById('map'), { zoom: 14, center: thePlace1 });
   // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({ position: uluru, map: map });
-}
+  new google.maps.Marker({ position: thePlace1, map: map });
+  // new google.maps.Marker({ position: thePlace2, map: map });
+  // new google.maps.Marker({ position: thePlace3, map: map });
+  // new google.maps.Marker({ position: thePlace4, map: map });
+  // new google.maps.Marker({ position: thePlace5, map: map });
 
+}
 // //function myMap() {
 //     var mapProp= {
 //       center:new google.maps.LatLng(51.508742,-0.120850),
@@ -163,3 +195,4 @@ function initMap() {
 // }).then(function(response) {
 //   console.log(response);
 // });
+
