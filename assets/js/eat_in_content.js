@@ -2,6 +2,15 @@
 function Homepage() {
   window.location="index.html";
 }
+      // Animation 
+var myVar;
+  function pageFunction() {
+     myVar = setTimeout(showPage, 3000);
+}
+  function showPage() {
+     document.getElementById("loader").style.display = "none";
+     document.getElementById("Animate").style.display = "block";
+}
 
 // // Iterative for-loop used to create results boxes
 for (a = 1; a < 6; a++) {
