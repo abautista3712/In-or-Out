@@ -134,16 +134,29 @@ function getDataAndAttach(indexID, targetRow) {
     $("#dataRating" + targetRow).text(
       "Yelp Rating: " + response.businesses[indexID].rating + "/5"
     );
-    $("#dataAddress" + targetRow).text(
-      response.businesses[indexID].location.address1 +
-        " " +
-        response.businesses[indexID].location.address2 +
-        " " +
-        response.businesses[indexID].location.address3 +
-        " " +
-        response.businesses[indexID].location.city +
-        " " +
-        response.businesses[indexID].location.zip_code
+    if (response.businesses[0].location.address1 === null) {
+    } else {
+      $("#dataAddress" + targetRow).text(
+        response.businesses[indexID].location.address1 + " "
+      );
+    }
+    if (response.businesses[0].location.address2 === null) {
+    } else {
+      $("#dataAddress" + targetRow).append(
+        response.businesses[indexID].location.address2 + " "
+      );
+    }
+    if (response.businesses[0].location.address3 === null) {
+    } else {
+      $("#dataAddress" + targetRow).append(
+        response.businesses[indexID].location.address3 + " "
+      );
+    }
+    $("#dataAddress" + targetRow).append(
+      response.businesses[indexID].location.city + " "
+    );
+    $("#dataAddress" + targetRow).append(
+      response.businesses[indexID].location.zip_code
     );
     $("#dataPhone" + targetRow).text(
       response.businesses[indexID].display_phone
@@ -153,6 +166,9 @@ function getDataAndAttach(indexID, targetRow) {
       response.businesses[indexID].url
     );
     $("#dataLinkToRestaurant" + targetRow).text("Full Review on Yelp");
+    if (response.businesses[0].location.address2 === null) {
+      console.log("Test Success");
+    }
   });
 }
 for (b = 0; b < 5; b++) {
@@ -213,12 +229,3 @@ $(document).on("keypress", function(e) {
     }
   }
 });
-
-// function pingMapOnClick(indexID) {
-//   $("#imageRestaurant" + indexID).on("click", function() {
-//     console.log("Test");
-//   });
-// }
-// for (d = 1; d < 6; d++) {
-//   pingMapOnClick(d);
-// }
