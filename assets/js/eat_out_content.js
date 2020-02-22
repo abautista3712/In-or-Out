@@ -67,6 +67,23 @@ for (a = 1; a < 6; a++) {
     .appendTo("#dataLinktoWebsite" + a);
 }
 
+function pingMapAndZoom() {
+  var map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 18,
+    center: {
+      lat: response.businesses[indexID].coordinates.latitude,
+      lng: response.businesses[indexID].coordinates.longitude
+    }
+  });
+  new google.maps.Marker({
+    position: {
+      lat: response.businesses[indexID].coordinates.latitude,
+      lng: response.businesses[indexID].coordinates.longitude
+    },
+    map: map
+  });
+}
+
 // Function to grab data from API and attach to elements
 function getDataAndAttach(indexID, targetRow) {
   var location = localStorage.getItem("foodLocation");
@@ -83,11 +100,33 @@ function getDataAndAttach(indexID, targetRow) {
         "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
     }
   }).then(function(response) {
-    $("#imageRestaurant" + targetRow).attr(
-      "src",
-      response.businesses[indexID].image_url
-    );
-    $("#dataTitle" + targetRow).text(response.businesses[indexID].name);
+    function pingMapAndZoom() {
+      var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 18,
+        center: {
+          lat: response.businesses[indexID].coordinates.latitude,
+          lng: response.businesses[indexID].coordinates.longitude
+        }
+      });
+      new google.maps.Marker({
+        position: {
+          lat: response.businesses[indexID].coordinates.latitude,
+          lng: response.businesses[indexID].coordinates.longitude
+        },
+        map: map
+      });
+    }
+
+    $("#imageRestaurant" + targetRow)
+      .attr("src", response.businesses[indexID].image_url)
+      .on("click", function() {
+        pingMapAndZoom();
+      });
+    $("#dataTitle" + targetRow)
+      .text(response.businesses[indexID].name)
+      .on("click", function() {
+        pingMapAndZoom();
+      });
     $("#dataPrice" + targetRow).text(response.businesses[indexID].price);
     $("#dataCategory" + targetRow).text(
       response.businesses[indexID].categories[0].title
@@ -95,16 +134,29 @@ function getDataAndAttach(indexID, targetRow) {
     $("#dataRating" + targetRow).text(
       "Yelp Rating: " + response.businesses[indexID].rating + "/5"
     );
-    $("#dataAddress" + targetRow).text(
-      response.businesses[indexID].location.address1 +
-        " " +
-        response.businesses[indexID].location.address2 +
-        " " +
-        response.businesses[indexID].location.address3 +
-        " " +
-        response.businesses[indexID].location.city +
-        " " +
-        response.businesses[indexID].location.zip_code
+    if (response.businesses[0].location.address1 === null) {
+    } else {
+      $("#dataAddress" + targetRow).text(
+        response.businesses[indexID].location.address1 + " "
+      );
+    }
+    if (response.businesses[0].location.address2 === null) {
+    } else {
+      $("#dataAddress" + targetRow).append(
+        response.businesses[indexID].location.address2 + " "
+      );
+    }
+    if (response.businesses[0].location.address3 === null) {
+    } else {
+      $("#dataAddress" + targetRow).append(
+        response.businesses[indexID].location.address3 + " "
+      );
+    }
+    $("#dataAddress" + targetRow).append(
+      response.businesses[indexID].location.city + " "
+    );
+    $("#dataAddress" + targetRow).append(
+      response.businesses[indexID].location.zip_code
     );
     $("#dataPhone" + targetRow).text(
       response.businesses[indexID].display_phone
@@ -114,24 +166,9 @@ function getDataAndAttach(indexID, targetRow) {
       response.businesses[indexID].url
     );
     $("#dataLinkToRestaurant" + targetRow).text("Full Review on Yelp");
-
-    // var userInputExample = 0;
-    // var map = new google.maps.Map(document.getElementById("map"), {
-    //   zoom: 10,
-    //   center: {
-    //     lat: response.businesses[0].coordinates.latitude,
-    //     lng: response.businesses[0].coordinates.longitude
-    //   }
-    // });
-    // for (c = 0; c < 5; c++) {
-    //   new google.maps.Marker({
-    //     position: {
-    //       lat: response.businesses[c].coordinates.latitude,
-    //       lng: response.businesses[c].coordinates.longitude
-    //     },
-    //     map: map
-    //   });
-    // }
+    if (response.businesses[0].location.address2 === null) {
+      console.log("Test Success");
+    }
   });
 }
 for (b = 0; b < 5; b++) {
