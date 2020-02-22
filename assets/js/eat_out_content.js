@@ -1,29 +1,20 @@
 //Home Function//
-
-var theLatitudes = [];
-var theLongitudes = [];
-var city = [];
-
 function Homepage() {
   window.location = "index.html";
 }
-      // Animation 
-// $(window).on("load",function(){
-//   $(".loader-wrapper").fadeOut("slow");
-// });
+
+// Loading Animation
 var myVar;
-  function pageFunction() {
-     myVar = setTimeout(showPage, 3000);
+function pageFunction() {
+  myVar = setTimeout(showPage, 3000);
 }
-  function showPage() {
-     document.getElementById("loader").style.display = "none";
-     document.getElementById("Animate").style.display = "block";
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("Animate").style.display = "block";
 }
 
-
-// // Iterative for-loop used to create results boxes
+// // Iterative for-loop used to create results boxes dynamically
 for (a = 1; a < 6; a++) {
-  var divider = "\u25CF";
   // Materialize Row
   $("<div>", { id: "listResultsBox" + a, class: "row" }).appendTo(
     "#eatOutContent"
@@ -39,8 +30,9 @@ for (a = 1; a < 6; a++) {
     alt: "Restaurant Pic"
   }).appendTo("#imageSizing" + a);
   // Wrapper used to restrict sizing/positioning on data returned from API
-  $("<div>", { id: "dataResultsWrapper" + a, class: "col s6" })
-    .appendTo("#listResultsBox" + a);
+  $("<div>", { id: "dataResultsWrapper" + a, class: "col s6" }).appendTo(
+    "#listResultsBox" + a
+  );
   // Data: Title
   $("<div>", { id: "dataTitle" + a, class: "col s12 placeName" })
     .text("name")
@@ -75,6 +67,7 @@ for (a = 1; a < 6; a++) {
     .appendTo("#dataLinktoWebsite" + a);
 }
 
+// Function to grab data from API and attach to elements
 function getDataAndAttach(indexID, targetRow) {
   var location = localStorage.getItem("foodLocation");
   var queryTerm = localStorage.getItem("foodItem");
@@ -84,20 +77,12 @@ function getDataAndAttach(indexID, targetRow) {
       location +
       "&term=" +
       queryTerm,
-      method: "GET",
-      headers: {
+    method: "GET",
+    headers: {
       Authorization:
         "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
     }
   }).then(function(response) {
-    console.log(response.businesses);
-    console.log(response.businesses[0].coordinates.latitude);
-    console.log(response.businesses[0].coordinates.longitude);
-
-    theLatitudes.push(response.businesses[indexID].coordinates.latitude);
-    theLongitudes.push(response.businesses[indexID].coordinates.longitude);
-
-
     $("#imageRestaurant" + targetRow).attr(
       "src",
       response.businesses[indexID].image_url
@@ -111,7 +96,7 @@ function getDataAndAttach(indexID, targetRow) {
       "Yelp Rating: " + response.businesses[indexID].rating + "/5"
     );
     $("#dataAddress" + targetRow).text(
-        response.businesses[indexID].location.address1 +
+      response.businesses[indexID].location.address1 +
         " " +
         response.businesses[indexID].location.address2 +
         " " +
@@ -129,15 +114,61 @@ function getDataAndAttach(indexID, targetRow) {
       response.businesses[indexID].url
     );
     $("#dataLinkToRestaurant" + targetRow).text("Full Review on Yelp");
-        
-    initMap();
 
+    // var userInputExample = 0;
+    var map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 10,
+      center: {
+        lat: response.businesses[0].coordinates.latitude,
+        lng: response.businesses[0].coordinates.longitude
+      }
+    });
+    for (c = 0; c < 5; c++) {
+      new google.maps.Marker({
+        position: {
+          lat: response.businesses[c].coordinates.latitude,
+          lng: response.businesses[c].coordinates.longitude
+        },
+        map: map
+      });
+    }
   });
 }
-
 for (b = 0; b < 5; b++) {
   getDataAndAttach(b, b + 1);
 }
+
+// var location = localStorage.getItem("foodLocation");
+// var queryTerm = localStorage.getItem("foodItem");
+// $.ajax({
+//   url:
+//     "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
+//     location +
+//     "&term=" +
+//     queryTerm,
+//   method: "GET",
+//   headers: {
+//     Authorization:
+//       "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
+//   }
+// }).then(function(response) {
+//   var map = new google.maps.Map(document.getElementById("map"), {
+//     zoom: 10,
+//     center: {
+//       lat: response.businesses[0].coordinates.latitude,
+//       lng: response.businesses[0].coordinates.longitude
+//     }
+//   });
+//   for (c = 0; c < 5; c++) {
+//     new google.maps.Marker({
+//       position: {
+//         lat: response.businesses[c].coordinates.latitude,
+//         lng: response.businesses[c].coordinates.longitude
+//       },
+//       map: map
+//     });
+//   }
+// });
 
 $("#inputRecipeBtn").on("click", function() {
   localStorage.setItem("foodItem", $("#inputFood").val());
@@ -156,73 +187,3 @@ $(document).on("keypress", function(e) {
     }
   }
 });
-
-//  Google Maps
-// // Initialize and add the map
-// function initMap() {
-//   // The location of Uluru
-//   var theCity = { lat: theLatitude, lng: theLongitude };
-
-//   // The map, centered at Uluru
-//   var map = new google.maps.Map(document.getElementById('map'), {
-//     zoom: 4,
-//     center: theCity
-//   });
-//   // The marker, positioned at Uluru
-//   var marker = new google.maps.Marker({ position: theCity, map: map });
-// }
-
-// Initialize and add the map
-function initMap() {
-  // The location of Uluru
-  var thePlace1 = { lat: theLatitudes[0], lng: theLongitudes[0] };
-  var thePlace2 = { lat: theLatitudes[1], lng: theLongitudes[1] };
-  var thePlace3 = { lat: theLatitudes[2], lng: theLongitudes[2] };
-  var thePlace4 = { lat: theLatitudes[3], lng: theLongitudes[3] };
-  var thePlace5 = { lat: theLatitudes[4], lng: theLongitudes[4] };
-  // var thePlace2 = { lat: theLatitude2, lng: theLongitude2 };
-  // var thePlace3 = { lat: theLatitude3, lng: theLongitude3 };
-  // var thePlace4 = { lat: theLatitude4, lng: theLongitude4 };
-  // var thePlace5 = { lat: theLatitude5, lng: theLongitude5 };
-
-  // The map, centered at Uluru
-  var map = new google.maps.Map(
-    document.getElementById('map'), { zoom: 12, center: thePlace1,thePlace2 }
- 
-    );
-  // The marker, positioned at Uluru
-  new google.maps.Marker({ position: thePlace1, map: map });
-  new google.maps.Marker({ position: thePlace2, map: map });
-  new google.maps.Marker({ position: thePlace3, map: map });
-  new google.maps.Marker({ position: thePlace4, map: map });
-  new google.maps.Marker({ position: thePlace5, map: map });
-}
-// //function myMap() {
-//     var mapProp= {
-//       center:new google.maps.LatLng(51.508742,-0.120850),
-//       zoom:5,
-//     };
-//     var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-//     }
-
-//     function init() {
-//         var input = document.getElementById('locationTextField');
-//         var autocomplete = new google.maps.places.Autocomplete(input);
-//     }
-
-//     google.maps.event.addDomListener(window, 'load', init);
-
-//     //console.log(init)
-
-// $.ajax({
-//   url:
-//     "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=San+Diego&term=taco",
-//   method: "GET",
-//   headers: {
-//     Authorization:
-//       "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
-//   }
-// }).then(function(response) {
-//   console.log(response);
-// });
-
