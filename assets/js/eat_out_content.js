@@ -116,6 +116,43 @@ function getDataAndAttach(indexID, targetRow) {
     $("#dataLinkToRestaurant" + targetRow).text("Full Review on Yelp");
 
     // var userInputExample = 0;
+    // var map = new google.maps.Map(document.getElementById("map"), {
+    //   zoom: 10,
+    //   center: {
+    //     lat: response.businesses[0].coordinates.latitude,
+    //     lng: response.businesses[0].coordinates.longitude
+    //   }
+    // });
+    // for (c = 0; c < 5; c++) {
+    //   new google.maps.Marker({
+    //     position: {
+    //       lat: response.businesses[c].coordinates.latitude,
+    //       lng: response.businesses[c].coordinates.longitude
+    //     },
+    //     map: map
+    //   });
+    // }
+  });
+}
+for (b = 0; b < 5; b++) {
+  getDataAndAttach(b, b + 1);
+}
+
+function getMap() {
+  var location = localStorage.getItem("foodLocation");
+  var queryTerm = localStorage.getItem("foodItem");
+  $.ajax({
+    url:
+      "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
+      location +
+      "&term=" +
+      queryTerm,
+    method: "GET",
+    headers: {
+      Authorization:
+        "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
+    }
+  }).then(function(response) {
     var map = new google.maps.Map(document.getElementById("map"), {
       zoom: 10,
       center: {
@@ -134,47 +171,14 @@ function getDataAndAttach(indexID, targetRow) {
     }
   });
 }
-for (b = 0; b < 5; b++) {
-  getDataAndAttach(b, b + 1);
-}
-
-// var location = localStorage.getItem("foodLocation");
-// var queryTerm = localStorage.getItem("foodItem");
-// $.ajax({
-//   url:
-//     "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
-//     location +
-//     "&term=" +
-//     queryTerm,
-//   method: "GET",
-//   headers: {
-//     Authorization:
-//       "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
-//   }
-// }).then(function(response) {
-//   var map = new google.maps.Map(document.getElementById("map"), {
-//     zoom: 10,
-//     center: {
-//       lat: response.businesses[0].coordinates.latitude,
-//       lng: response.businesses[0].coordinates.longitude
-//     }
-//   });
-//   for (c = 0; c < 5; c++) {
-//     new google.maps.Marker({
-//       position: {
-//         lat: response.businesses[c].coordinates.latitude,
-//         lng: response.businesses[c].coordinates.longitude
-//       },
-//       map: map
-//     });
-//   }
-// });
+getMap();
 
 $("#inputRecipeBtn").on("click", function() {
   localStorage.setItem("foodItem", $("#inputFood").val());
   localStorage.setItem("foodLocation", $("#inputLocation").val());
   for (b = 0; b < 5; b++) {
     getDataAndAttach(b, b + 1);
+    getMap();
   }
 });
 
@@ -184,6 +188,7 @@ $(document).on("keypress", function(e) {
     localStorage.setItem("foodLocation", $("#inputLocation").val());
     for (b = 0; b < 5; b++) {
       getDataAndAttach(b, b + 1);
+      getMap();
     }
   }
 });
