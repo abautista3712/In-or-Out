@@ -20,7 +20,7 @@ No installation necessary with the exception of a functioning internet browser.
 
 ## Usage
 Accessible via:
-https://abautista3712.github.io/In-or-Out/eat_out_content.html
+https://abautista3712.github.io/In-or-Out/
 
 ## APIs
 Yelp
