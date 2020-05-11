@@ -32,3 +32,12 @@ External contributions outside of the project group are discouraged.
 
 ## License
 All Rights Reserved
+
+## Questions?
+
+
+    
+If you have any questions about this repo, open an issue or contact the development team directly:  
+<img src="https://avatars1.githubusercontent.com/u/58578177?v=4" alt="avatar" style="border-radius: 16px" width="15" />[Abelard Bautista] abelardbautista@gmail.com  
+<img src="https://avatars1.githubusercontent.com/u/56010564?v=4" alt="avatar" style="border-radius: 16px" width="15" />[Brian Ulatowski] brian.ulatowski@gmail.com  
+<img src="https://avatars1.githubusercontent.com/u/56624676?v=4" alt="avatar" style="border-radius: 16px" width="15" />[Oscar Renderos] oscar.renderosjr@gmail.com
