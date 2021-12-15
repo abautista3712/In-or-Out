@@ -27,7 +27,7 @@ for (a = 1; a < 6; a++) {
   $("<img>", {
     id: "imageRestaurant" + a,
     class: "col s12",
-    alt: "Restaurant Pic"
+    alt: "Restaurant Pic",
   }).appendTo("#imageSizing" + a);
   // Wrapper used to restrict sizing/positioning on data returned from API
   $("<div>", { id: "dataResultsWrapper" + a, class: "col s6" }).appendTo(
@@ -72,17 +72,23 @@ function pingMapAndZoom() {
     zoom: 18,
     center: {
       lat: response.businesses[indexID].coordinates.latitude,
-      lng: response.businesses[indexID].coordinates.longitude
-    }
+      lng: response.businesses[indexID].coordinates.longitude,
+    },
   });
   new google.maps.Marker({
     position: {
       lat: response.businesses[indexID].coordinates.latitude,
-      lng: response.businesses[indexID].coordinates.longitude
+      lng: response.businesses[indexID].coordinates.longitude,
     },
-    map: map
+    map: map,
   });
 }
+
+jQuery.ajaxPrefilter(function (options) {
+  if (options.crossDomain && jQuery.support.cors) {
+    options.url = "https://cors-anywhere.herokuapp.com/" + options.url;
+  }
+});
 
 // Function to grab data from API and attach to elements
 function getDataAndAttach(indexID, targetRow) {
@@ -97,34 +103,34 @@ function getDataAndAttach(indexID, targetRow) {
     method: "GET",
     headers: {
       Authorization:
-        "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
-    }
-  }).then(function(response) {
+        "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx",
+    },
+  }).then(function (response) {
     function pingMapAndZoom() {
       var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 18,
         center: {
           lat: response.businesses[indexID].coordinates.latitude,
-          lng: response.businesses[indexID].coordinates.longitude
-        }
+          lng: response.businesses[indexID].coordinates.longitude,
+        },
       });
       new google.maps.Marker({
         position: {
           lat: response.businesses[indexID].coordinates.latitude,
-          lng: response.businesses[indexID].coordinates.longitude
+          lng: response.businesses[indexID].coordinates.longitude,
         },
-        map: map
+        map: map,
       });
     }
 
     $("#imageRestaurant" + targetRow)
       .attr("src", response.businesses[indexID].image_url)
-      .on("click", function() {
+      .on("click", function () {
         pingMapAndZoom();
       });
     $("#dataTitle" + targetRow)
       .text(response.businesses[indexID].name)
-      .on("click", function() {
+      .on("click", function () {
         pingMapAndZoom();
       });
     $("#dataPrice" + targetRow).text(response.businesses[indexID].price);
@@ -187,30 +193,30 @@ function getMap() {
     method: "GET",
     headers: {
       Authorization:
-        "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx"
-    }
-  }).then(function(response) {
+        "Bearer roEn_ezE99s_UqG2kH4-r-nbOAMwFTCCGgZRqUz2zXswR_0l4zdPM4Kcyrb_39E1vl96VofmaT92syqs1RSvkoqdS0bf_3h1DCykXbLjOlEUbUEAsT3CvBFdX0pIXnYx",
+    },
+  }).then(function (response) {
     var map = new google.maps.Map(document.getElementById("map"), {
       zoom: 10,
       center: {
         lat: response.businesses[0].coordinates.latitude,
-        lng: response.businesses[0].coordinates.longitude
-      }
+        lng: response.businesses[0].coordinates.longitude,
+      },
     });
     for (c = 0; c < 5; c++) {
       new google.maps.Marker({
         position: {
           lat: response.businesses[c].coordinates.latitude,
-          lng: response.businesses[c].coordinates.longitude
+          lng: response.businesses[c].coordinates.longitude,
         },
-        map: map
+        map: map,
       });
     }
   });
 }
 getMap();
 
-$("#inputRecipeBtn").on("click", function() {
+$("#inputRecipeBtn").on("click", function () {
   localStorage.setItem("foodItem", $("#inputFood").val());
   localStorage.setItem("foodLocation", $("#inputLocation").val());
   for (b = 0; b < 5; b++) {
@@ -219,7 +225,7 @@ $("#inputRecipeBtn").on("click", function() {
   }
 });
 
-$(document).on("keypress", function(e) {
+$(document).on("keypress", function (e) {
   if (e.which === 13) {
     localStorage.setItem("foodItem", $("#inputFood").val());
     localStorage.setItem("foodLocation", $("#inputLocation").val());
