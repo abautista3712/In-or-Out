@@ -96,7 +96,7 @@ function getDataAndAttach(indexID, targetRow) {
   var queryTerm = localStorage.getItem("foodItem");
   $.ajax({
     url:
-      "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
+      "https://still-shore-42578.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
       location +
       "&term=" +
       queryTerm,
@@ -186,7 +186,7 @@ function getMap() {
   var queryTerm = localStorage.getItem("foodItem");
   $.ajax({
     url:
-      "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
+      "https://still-shore-42578.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
       location +
       "&term=" +
       queryTerm,
