@@ -86,7 +86,7 @@ function pingMapAndZoom() {
 
 jQuery.ajaxPrefilter(function (options) {
   if (options.crossDomain && jQuery.support.cors) {
-    options.url = "https://enigmatic-peak-25671.herokuapp.com/" + options.url;
+    options.url = "https://obscure-coast-59544.herokuapp.com/" + options.url;
   }
 });
 
@@ -96,7 +96,7 @@ function getDataAndAttach(indexID, targetRow) {
   var queryTerm = localStorage.getItem("foodItem");
   $.ajax({
     url:
-      "https://enigmatic-peak-25671.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
+      "https://obscure-coast-59544.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
       location +
       "&term=" +
       queryTerm,
@@ -186,7 +186,7 @@ function getMap() {
   var queryTerm = localStorage.getItem("foodItem");
   $.ajax({
     url:
-      "https://enigmatic-peak-25671.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
+      "https://obscure-coast-59544.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" +
       location +
       "&term=" +
       queryTerm,
