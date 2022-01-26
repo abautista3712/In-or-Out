@@ -1,6 +1,9 @@
 {
   "name": "project1",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.x"
+  },
   "description": "<img width=\"1497\" alt=\"HomepageIn\" src=\"https://user-images.githubusercontent.com/56624676/75085702-92c4cd00-54e0-11ea-939b-ade7058be35d.png\">",
   "main": "server.js",
   "dependencies": {
