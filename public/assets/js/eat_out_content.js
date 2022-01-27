@@ -84,12 +84,6 @@ function pingMapAndZoom() {
   });
 }
 
-jQuery.ajaxPrefilter(function (options) {
-  if (options.crossDomain && jQuery.support.cors) {
-    options.url = "https://obscure-coast-59544.herokuapp.com/" + options.url;
-  }
-});
-
 // Function to grab data from API and attach to elements
 function getDataAndAttach(indexID, targetRow) {
   var location = localStorage.getItem("foodLocation");
@@ -173,7 +167,6 @@ function getDataAndAttach(indexID, targetRow) {
     );
     $("#dataLinkToRestaurant" + targetRow).text("Full Review on Yelp");
     if (response.businesses[0].location.address2 === null) {
-      console.log("Test Success");
     }
   });
 }
