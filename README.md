@@ -1,4 +1,4 @@
-# Project1 - In or Out
+# In or Out
 <img width="1497" alt="HomepageIn" src="https://user-images.githubusercontent.com/56624676/75085702-92c4cd00-54e0-11ea-939b-ade7058be35d.png">
 
 <img width="1557" alt="HomepageOut" src="https://user-images.githubusercontent.com/56624676/75085700-8e001900-54e0-11ea-96dc-323ceed653ab.png">
